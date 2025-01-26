@@ -1,0 +1,268 @@
+import sys
+
+
+class Parameters:
+    parameter_groups = {
+        "pruner": ["only_common_species",
+                   "remove_sensitive_species",
+                   "species",
+                   "only_joint_media",
+                   "observations_for_removal",
+                   "observers_for_removal",
+                   "duration_threshold",
+                   "location_uncertainty_threshold",
+                   "observation_minimum_threshold",
+                   "observation_maximum_threshold",
+                   "observer_minimum_threshold",
+                   "observer_maximum_threshold",
+                   "require_sex_detail",
+                   "require_age_detail",
+                   "require_subspecies_detail",
+                   "partition_weight",
+                   "detail_tier",
+                   "detail_low_resolution",
+                   "detail_weight",
+                   "detail_penalty",
+                   "maximum_species_count"],
+        "partitioner": ["minimum_observation_count",
+                        "maximum_observation_count",
+                        "distribution",
+                        "partition_ratio",
+                        "partition_maxima",
+                        "remainder_partition",
+                        "priority_partition",
+                        "semi_priority_partition",
+                        "balance_sex",
+                        "sex_weight",
+                        "balance_age",
+                        "age_weight",
+                        "balance_vocalisation",
+                        "vocalisation_zoom",
+                        "vocalisation_weight",
+                        "balance_subspecies",
+                        "subspecies_weight",
+                        "balance_location",
+                        "location_zoom",
+                        "location_offset",
+                        "location_weight",
+                        "balance_date",
+                        "date_zoom",
+                        "date_offset",
+                        "date_weight",
+                        "balance_time",
+                        "time_zoom",
+                        "time_offset",
+                        "time_weight",
+                        "attribute_weight",
+                        "maximum_attribute_size"],
+        "pairer": ["pair_sex",
+                   "pair_age",
+                   "pair_subspecies",
+                   "pair_location",
+                   "pair_date",
+                   "pair_time",
+                   "sex_weight",
+                   "age_weight",
+                   "subspecies_weight",
+                   "location_weight",
+                   "date_weight",
+                   "time_weight",
+                   "disqualify_sex",
+                   "disqualify_age",
+                   "disqualify_subspecies",
+                   "disqualify_location",
+                   "disqualify_date",
+                   "disqualify_time",
+                   "location_cap",
+                   "date_cap",
+                   "time_cap"]
+    }
+
+    parameter_type_levels = {
+        "only_common_species": 0,
+        "remove_sensitive_species": 0,
+        "species": 0,
+        "observations_for_removal": 2,
+        "observers_for_removal": 2,
+        "only_joint_media": 2,
+        "duration_threshold": 2,
+        "location_uncertainty_threshold": 2,
+        "observation_minimum_threshold": 2,
+        "observation_maximum_threshold": 2,
+        "observer_minimum_threshold": 2,
+        "observer_maximum_threshold": 2,
+        "require_sex_detail": 0,
+        "require_age_detail": 0,
+        "require_subspecies_detail": 0,
+        "partition_weight": 2,
+        "detail_tier": 0,
+        "detail_low_resolution": 0,
+        "detail_weight": 0,
+        "detail_penalty": 0,
+        "maximum_species_count": 0,
+        "minimum_observation_count": 2,
+        "maximum_observation_count": 2,
+        "distribution": 2,
+        "partition_ratio": 2,
+        "partition_maxima": 2,
+        "remainder_partition": 2,
+        "priority_partition": 2,
+        "semi_priority_partition": 2,
+        "balance_sex": 2,
+        "sex_weight": 2,
+        "balance_age": 2,
+        "age_weight": 2,
+        "balance_vocalisation": 2,
+        "vocalisation_zoom": 2,
+        "vocalisation_weight": 2,
+        "balance_subspecies": 2,
+        "subspecies_weight": 2,
+        "balance_location": 2,
+        "location_zoom": 2,
+        "location_offset": 2,
+        "location_weight": 2,
+        "balance_date": 2,
+        "date_zoom": 2,
+        "date_offset": 2,
+        "date_weight": 2,
+        "balance_time": 2,
+        "time_zoom": 2,
+        "time_offset": 2,
+        "time_weight": 2,
+        "attribute_weight": 2,
+        "maximum_attribute_size": 2,
+        "pair_sex": 2,
+        "pair_age": 2,
+        "pair_subspecies": 2,
+        "pair_location": 2,
+        "pair_date": 2,
+        "pair_time": 2,
+        "sex_weight": 2,
+        "age_weight": 2,
+        "subspecies_weight": 2,
+        "location_weight": 2,
+        "date_weight": 2,
+        "time_weight": 2,
+        "disqualify_sex": 2,
+        "disqualify_age": 2,
+        "disqualify_subspecies": 2,
+        "disqualify_location": 2,
+        "disqualify_date": 2,
+        "disqualify_time": 2,
+        "location_cap": 2,
+        "date_cap": 2,
+        "time_cap": 2
+    }
+
+    parameter_type_defaults = {
+        "only_common_species": False,
+        "remove_sensitive_species": False,
+        "species": [],
+        "only_joint_media": False,
+        "observations_for_removal": [],
+        "observers_for_removal": {},
+        "duration_threshold": "0:00",
+        "location_uncertainty_threshold": 0,
+        "observation_minimum_threshold": 0,
+        "observation_maximum_threshold": sys.maxsize,
+        "observer_minimum_threshold": 0,
+        "observer_maximum_threshold": sys.maxsize,
+        "require_sex_detail": False,
+        "require_age_detail": False,
+        "require_subspecies_detail": False,
+        "partition_weight": 1,
+        "detail_tier": {},
+        "detail_low_resolution": {},
+        "detail_weight": {},
+        "detail_penalty": {},
+        "maximum_species_count": 1,
+        "minimum_observation_count": 1,
+        "maximum_observation_count": sys.maxsize,
+        "distribution": None,
+        "partition_ratio": [],
+        "partition_maxima": [],
+        "remainder_partition": None,
+        "priority_partition": "",
+        "semi_priority_partition": "",
+        "balance_sex": False,
+        "sex_weight": 1,
+        "balance_age": False,
+        "age_weight": 1,
+        "balance_vocalisation": False,
+        "vocalisation_zoom": [],
+        "vocalisation_weight": 1,
+        "balance_subspecies": False,
+        "subspecies_weight": 1,
+        "balance_location": False,
+        "location_zoom": [],
+        "location_offset": [],
+        "location_weight": [],
+        "balance_date": False,
+        "date_zoom": [],
+        "date_offset": [],
+        "date_weight": [],
+        "balance_time": False,
+        "time_zoom": [],
+        "time_offset": [],
+        "time_weight": [],
+        "attribute_weight": 1,
+        "maximum_attribute_size": 7,
+        "pair_sex": False,
+        "pair_age": False,
+        "pair_subspecies": False,
+        "pair_location": False,
+        "pair_date": False,
+        "pair_time": False,
+        "sex_weight": 1,
+        "age_weight": 1,
+        "subspecies_weight": 1,
+        "location_weight": 1,
+        "date_weight": 1,
+        "time_weight": 1,
+        "disqualify_sex": False,
+        "disqualify_age": False,
+        "disqualify_subspecies": False,
+        "disqualify_location": False,
+        "disqualify_date": False,
+        "disqualify_time": False,
+        "location_cap": sys.maxsize,
+        "date_cap": sys.maxsize,
+        "time_cap": sys.maxsize
+    }
+
+    def __init__(self, parameters_structure, parameter_group):
+        self.parameters_structure = parameters_structure
+        self.parameter_group = parameter_group
+        self.parameters = self.initialise()
+
+    def initialise(self):
+        parameters = {}
+        for parameter_type in self.parameter_groups[self.parameter_group]:
+            parameter_level = self.parameter_type_levels[parameter_type]
+            if parameter_level == 0:
+                parameters[parameter_type] = self.parameter_type_defaults[parameter_type]
+            elif parameter_level == 1:
+                parameters[parameter_type] = {m: self.parameter_type_defaults[parameter_type] for m in list(self.parameters_structure.keys())}
+            elif parameter_level == 2:
+                parameters[parameter_type] = {m: {p: self.parameter_type_defaults[parameter_type] for p in list(self.parameters_structure[m].keys())} for m in list(self.parameters_structure.keys())}
+        return parameters
+
+    def add(self, parameter_type, parameter_value, modality=None, partition=None):
+        parameter_level = self.parameter_type_levels[parameter_type]
+        if parameter_level == 0:
+            self.parameters[parameter_type] = parameter_value
+        elif parameter_level == 1:
+            if modality is None:
+                self.parameters[parameter_type] = {m: parameter_value for m in list(self.parameters_structure.keys())}
+            else:
+                self.parameters[parameter_type][modality] = parameter_value
+        elif parameter_level == 2:
+            if modality is None and partition is None:
+                self.parameters[parameter_type] = {m: {p: parameter_value for p in list(self.parameters_structure[m].keys())} for m in list(self.parameters_structure.keys())}
+            elif partition is None:
+                self.parameters[parameter_type][modality] = {p: parameter_value for p in list(self.parameters_structure[modality].keys())}
+            else:
+                self.parameters[parameter_type][modality][partition] = parameter_value
+
+    def get(self):
+        return self.parameters
